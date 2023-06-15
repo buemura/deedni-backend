@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { CreateJobDto } from 'src/jobs/dtos/create-job.dto';
-import { JobsQueryOptionsDto } from 'src/jobs/dtos/job-query-options.dto';
-import { UpdateJobDto } from 'src/jobs/dtos/update-job.dto';
-import { Job } from 'src/jobs/entities/job.entity';
-import { JobsRepository } from 'src/jobs/repositories/jobs.repository';
+import { CreateJobDto } from 'src/dtos/jobs/create-job.dto';
+import { JobsQueryOptionsDto } from 'src/dtos/jobs/job-query-options.dto';
+import { UpdateJobDto } from 'src/dtos/jobs/update-job.dto';
+import { Job } from 'src/entities/job.entity';
+import { JobsRepository } from 'src/repositories/jobs.repository';
 import { PrismaService } from '../prisma.service';
 
 @Injectable()
