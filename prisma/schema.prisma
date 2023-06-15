@@ -1,0 +1,66 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String     @default(uuid()) @id
+  name      String
+  email     String     @unique
+  password  String
+  createdAt DateTime   @default(now()) @map("created_at")
+  updatedAt DateTime   @updatedAt @map("updated_at")
+
+  feedback    Feedback[]
+
+  @@map("users")
+}
+
+model Company {
+  id          String     @default(uuid()) @id
+  name        String
+  email       String     @unique 
+  password    String
+  description String?
+  profileUrl  String?    @map("profile_url")
+  rating      Float?     @default(0)
+  createdAt   DateTime   @default(now()) @map("created_at")
+  updatedAt   DateTime   @updatedAt @map("updated_at")
+
+  job         Job[]
+  feedback    Feedback[]
+
+  @@map("companies")
+}
+
+model Feedback {
+  id          Int        @default(autoincrement()) @id
+  user        User       @relation(fields: [userId], references: [id])
+  userId      String     @map("user_id")
+  company     Company    @relation(fields: [companyId], references: [id])
+  companyId   String     @map("company_id")
+  
+  stars       Int
+  title       String
+  description String
+  createdAt   DateTime   @default(now()) @map("created_at")
+
+  @@map("feedbacks")
+}
+
+model Job {
+  id          Int        @default(autoincrement()) @id
+  company     Company    @relation(fields: [companyId], references: [id])
+  companyId   String     @map("company_id")
+  title       String
+  description String
+  location    String
+  createdAt   DateTime   @default(now()) @map("created_at")
+  updatedAt   DateTime   @updatedAt @map("updated_at")
+
+  @@map("jobs")
+}
