@@ -2,11 +2,12 @@ import { Injectable, Logger, UnauthorizedException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
-import { ROLES } from 'src/common/enums/roles';
-import { Company } from 'src/entities/company.entity';
-import { User } from 'src/entities/user.entity';
-import { CompaniesService } from 'src/modules/companies/services/companies.service';
-import { UsersService } from '../../users/services/users.service';
+
+import { ROLES } from '@common/enums/roles';
+import { Company } from '@entities/company.entity';
+import { User } from '@entities/user.entity';
+import { CompaniesService } from '@modules/companies/services/companies.service';
+import { UsersService } from '@modules/users/services/users.service';
 import { TokenPayload } from '../types/token-payload';
 
 @Injectable()

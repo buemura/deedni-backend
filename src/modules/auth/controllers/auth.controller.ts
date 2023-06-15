@@ -1,12 +1,13 @@
 import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
-import { LoginCompanyDto } from 'src/dtos/companies/login-company.dto';
-import { RegisterCompanyDto } from 'src/dtos/companies/register-company.dto';
-import { Company } from 'src/entities/company.entity';
-import { User } from 'src/entities/user.entity';
-import { CurrentUser } from '../../../decorators/current-user.decorator';
-import { LoginUserDto } from '../../../dtos/auth/login-user.dto';
-import { RegisterUserDto } from '../../../dtos/auth/register-user.dto';
-import { JwtAuthGuard } from '../../../guards/jwt-auth.guard';
+
+import { CurrentUser } from '@decorators/current-user.decorator';
+import { LoginUserDto } from '@dtos/auth/login-user.dto';
+import { RegisterUserDto } from '@dtos/auth/register-user.dto';
+import { LoginCompanyDto } from '@dtos/companies/login-company.dto';
+import { RegisterCompanyDto } from '@dtos/companies/register-company.dto';
+import { Company } from '@entities/company.entity';
+import { User } from '@entities/user.entity';
+import { JwtAuthGuard } from '@guards/jwt-auth.guard';
 import { AuthService } from '../services/auth.service';
 
 @Controller('auth')

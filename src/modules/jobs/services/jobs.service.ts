@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { CreateJobDto } from '../../../dtos/jobs/create-job.dto';
-import { JobsQueryOptionsDto } from '../../../dtos/jobs/job-query-options.dto';
-import { UpdateJobDto } from '../../../dtos/jobs/update-job.dto';
-import { JobsRepository } from '../../../repositories/jobs.repository';
+
+import { CreateJobDto } from '@dtos/jobs/create-job.dto';
+import { JobsQueryOptionsDto } from '@dtos/jobs/job-query-options.dto';
+import { UpdateJobDto } from '@dtos/jobs/update-job.dto';
+import { JobsRepository } from '@repositories/jobs.repository';
 
 @Injectable()
 export class JobsService {

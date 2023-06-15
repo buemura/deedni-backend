@@ -5,15 +5,16 @@ import {
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { compareSync, hashSync } from 'bcrypt';
-import { ROLES } from 'src/common/enums/roles';
-import { LoginCompanyDto } from 'src/dtos/companies/login-company.dto';
-import { RegisterCompanyDto } from 'src/dtos/companies/register-company.dto';
-import { Company } from 'src/entities/company.entity';
-import { CompaniesService } from 'src/modules/companies/services/companies.service';
-import { UsersService } from 'src/modules/users/services/users.service';
-import { LoginUserDto } from '../../../dtos/auth/login-user.dto';
-import { RegisterUserDto } from '../../../dtos/auth/register-user.dto';
-import { User } from '../../../entities/user.entity';
+
+import { ROLES } from '@common/enums/roles';
+import { LoginUserDto } from '@dtos/auth/login-user.dto';
+import { RegisterUserDto } from '@dtos/auth/register-user.dto';
+import { LoginCompanyDto } from '@dtos/companies/login-company.dto';
+import { RegisterCompanyDto } from '@dtos/companies/register-company.dto';
+import { Company } from '@entities/company.entity';
+import { User } from '@entities/user.entity';
+import { CompaniesService } from '@modules/companies/services/companies.service';
+import { UsersService } from '@modules/users/services/users.service';
 import { TokenPayload } from '../types/token-payload';
 
 @Injectable()

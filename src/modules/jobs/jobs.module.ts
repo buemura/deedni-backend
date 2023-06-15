@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { DatabaseModule } from 'src/database/database.module';
+
+import { DatabaseModule } from '@database/database.module';
 import { JobsController } from './controllers/jobs.controller';
 import { JobsService } from './services/jobs.service';
 

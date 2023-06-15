@@ -16,6 +16,16 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@common/*": ["src/common/*"],
+      "@database/*": ["src/database/*"],
+      "@decorators/*": ["src/decorators/*"],
+      "@dtos/*": ["src/dtos/*"],
+      "@entities/*": ["src/entities/*"],
+      "@guards/*": ["src/guards/*"],
+      "@repositories/*": ["src/repositories/*"],
+      "@modules/*": ["src/modules/*"]
+    }
   }
 }

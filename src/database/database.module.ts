@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
-import { CompaniesRepository } from 'src/repositories/companies.repository';
-import { JobsRepository } from 'src/repositories/jobs.repository';
-import { UsersRepository } from 'src/repositories/users.repository';
+
+import { CompaniesRepository } from '@repositories/companies.repository';
+import { JobsRepository } from '@repositories/jobs.repository';
+import { UsersRepository } from '@repositories/users.repository';
 import { PrismaService } from './prisma/prisma.service';
 import { PrismaCompaniesRepository } from './prisma/repositories/companies.repository';
 import { PrismaJobsRepository } from './prisma/repositories/jobs.repositories';

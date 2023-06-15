@@ -1,6 +1,6 @@
-import { CreateCompanyDto } from '../dtos/companies/create-company.dto';
-import { UpdateCompanyDto } from '../dtos/companies/update-company.dto';
-import { Company } from '../entities/company.entity';
+import { CreateCompanyDto } from '@dtos/companies/create-company.dto';
+import { UpdateCompanyDto } from '@dtos/companies/update-company.dto';
+import { Company } from '@entities/company.entity';
 
 export abstract class CompaniesRepository {
   abstract findAll(): Promise<Company[]>;

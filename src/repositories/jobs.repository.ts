@@ -1,7 +1,7 @@
-import { CreateJobDto } from '../dtos/jobs/create-job.dto';
-import { JobsQueryOptionsDto } from '../dtos/jobs/job-query-options.dto';
-import { UpdateJobDto } from '../dtos/jobs/update-job.dto';
-import { Job } from '../entities/job.entity';
+import { CreateJobDto } from '@dtos/jobs/create-job.dto';
+import { JobsQueryOptionsDto } from '@dtos/jobs/job-query-options.dto';
+import { UpdateJobDto } from '@dtos/jobs/update-job.dto';
+import { Job } from '@entities/job.entity';
 
 export abstract class JobsRepository {
   abstract findMany(options?: JobsQueryOptionsDto): Promise<Job[]>;
