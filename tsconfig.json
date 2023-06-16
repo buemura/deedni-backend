@@ -6,7 +6,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es2017",
+    "target": "ES2018",
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
@@ -17,15 +17,19 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
+    "resolveJsonModule": true,
     "paths": {
       "@common/*": ["src/common/*"],
       "@database/*": ["src/database/*"],
       "@decorators/*": ["src/decorators/*"],
       "@dtos/*": ["src/dtos/*"],
       "@entities/*": ["src/entities/*"],
+      "@enums/*": ["src/enums/*"],
       "@guards/*": ["src/guards/*"],
       "@repositories/*": ["src/repositories/*"],
       "@modules/*": ["src/modules/*"]
     }
-  }
+  },
+  "include": ["src/**/*", "test/**/*", "**/*.config.js"],
+  "exclude": ["node_modules", "dist"]
 }

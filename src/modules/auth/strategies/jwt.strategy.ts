@@ -3,9 +3,9 @@ import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 
-import { ROLES } from '@common/enums/roles';
 import { Company } from '@entities/company.entity';
 import { User } from '@entities/user.entity';
+import { ROLES } from '@enums/roles';
 import { CompaniesService } from '@modules/companies/services/companies.service';
 import { UsersService } from '@modules/users/services/users.service';
 import { TokenPayload } from '../types/token-payload';

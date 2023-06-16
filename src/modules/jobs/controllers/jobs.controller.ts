@@ -10,11 +10,11 @@ import {
   UseGuards,
 } from '@nestjs/common';
 
-import { ROLES } from '@common/enums/roles';
 import { Roles } from '@decorators/roles.decorator';
 import { CreateJobDto } from '@dtos/jobs/create-job.dto';
 import { JobsQueryOptionsDto } from '@dtos/jobs/job-query-options.dto';
 import { UpdateJobDto } from '@dtos/jobs/update-job.dto';
+import { ROLES } from '@enums/roles';
 import { RolesGuard } from '@guards/company-role.guard';
 import { JwtAuthGuard } from '@guards/jwt-auth.guard';
 import { JobsService } from '../services/jobs.service';
