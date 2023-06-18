@@ -1,4 +1,28 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateJobDto } from './create-job.dto';
+import { ApiProperty } from '@nestjs/swagger';
+import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
-export class UpdateJobDto extends PartialType(CreateJobDto) {}
+export class UpdateJobDto {
+  @ApiProperty({ required: false })
+  @IsNotEmpty()
+  @IsString()
+  @IsOptional()
+  companyId?: string;
+
+  @ApiProperty({ required: false })
+  @IsNotEmpty()
+  @IsString()
+  @IsOptional()
+  title?: string;
+
+  @ApiProperty({ required: false })
+  @IsNotEmpty()
+  @IsString()
+  @IsOptional()
+  description?: string;
+
+  @ApiProperty({ required: false })
+  @IsNotEmpty()
+  @IsString()
+  @IsOptional()
+  location?: string;
+}

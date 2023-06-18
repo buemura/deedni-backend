@@ -6,6 +6,7 @@ import {
 import { JwtService } from '@nestjs/jwt';
 import { compareSync, hashSync } from 'bcrypt';
 
+import { LoginResponseDto } from '@dtos/auth/login-response.dto';
 import { LoginUserDto } from '@dtos/auth/login-user.dto';
 import { RegisterUserDto } from '@dtos/auth/register-user.dto';
 import { LoginCompanyDto } from '@dtos/companies/login-company.dto';
@@ -38,7 +39,7 @@ export class AuthService {
     };
   }
 
-  async loginUser(data: LoginUserDto) {
+  async loginUser(data: LoginUserDto): Promise<LoginResponseDto> {
     const user = await this.usersService.findByEmail(data.email);
     if (!user) {
       throw new UnauthorizedException('Invalid Credentials');
@@ -66,7 +67,7 @@ export class AuthService {
     return user;
   }
 
-  async loginCompany(data: LoginCompanyDto) {
+  async loginCompany(data: LoginCompanyDto): Promise<LoginResponseDto> {
     const company = await this.companiesService.findByEmail(data.email);
     if (!company) {
       throw new UnauthorizedException('Invalid Credentials');
