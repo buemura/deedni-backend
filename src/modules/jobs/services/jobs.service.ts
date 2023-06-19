@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 
 import { CreateJobDto } from '@dtos/jobs/create-job.dto';
 import { JobsQueryOptionsDto } from '@dtos/jobs/job-query-options.dto';
@@ -7,7 +7,11 @@ import { JobsRepository } from '@repositories/jobs.repository';
 
 @Injectable()
 export class JobsService {
-  constructor(private readonly jobsRepository: JobsRepository) {}
+  private readonly logger: Logger;
+
+  constructor(private readonly jobsRepository: JobsRepository) {
+    this.logger = new Logger(JobsService.name);
+  }
 
   async findMany(query: JobsQueryOptionsDto) {
     return this.jobsRepository.findMany(query);

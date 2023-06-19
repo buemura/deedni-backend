@@ -12,16 +12,55 @@ services:
     env_file:
       - .env.docker
 
-  deedni-api:
+  api1:
     build:
       context: .
       dockerfile: Dockerfile
     env_file:
       - .env
-    ports:
-      - '8080:8080'
     depends_on:
       - postgres
+    ports:
+      - '8081:8080'
+    networks:
+      - backend
+
+  api2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    ports:
+      - '8082:8080'
+    networks:
+      - backend
+
+  api3:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    ports:
+      - '8083:8080'
+    networks:
+      - backend
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/nginx.dockerfile
+    ports:
+      - 8080:80
+    depends_on:
+      - api1
+      - api2
+      - api3
     networks:
       - backend
 

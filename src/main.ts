@@ -1,3 +1,4 @@
+import { LoggerInterceptor } from '@interceptors/logger.interceptor';
 import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
@@ -9,6 +10,7 @@ async function bootstrap() {
 
   app.enableCors();
   app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalInterceptors(new LoggerInterceptor());
   app.setGlobalPrefix('api');
 
   const config = new DocumentBuilder()

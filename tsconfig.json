@@ -26,6 +26,7 @@
       "@entities/*": ["src/entities/*"],
       "@enums/*": ["src/enums/*"],
       "@guards/*": ["src/guards/*"],
+      "@interceptors/*": ["src/interceptors/*"],
       "@repositories/*": ["src/repositories/*"],
       "@modules/*": ["src/modules/*"]
     }
