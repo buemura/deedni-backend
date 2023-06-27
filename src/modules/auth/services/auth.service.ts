@@ -6,16 +6,16 @@ import {
 import { JwtService } from '@nestjs/jwt';
 import { compareSync, hashSync } from 'bcrypt';
 
-import { LoginResponseDto } from '@dtos/auth/login-response.dto';
-import { LoginUserDto } from '@dtos/auth/login-user.dto';
-import { RegisterUserDto } from '@dtos/auth/register-user.dto';
-import { LoginCompanyDto } from '@dtos/companies/login-company.dto';
-import { RegisterCompanyDto } from '@dtos/companies/register-company.dto';
-import { Company } from '@entities/company.entity';
-import { User } from '@entities/user.entity';
-import { ROLES } from '@enums/roles';
+import { LoginResponseDto } from '@modules/auth/dtos/login-response.dto';
+import { LoginUserDto } from '@modules/auth/dtos/login-user.dto';
+import { RegisterUserDto } from '@modules/auth/dtos/register-user.dto';
+import { LoginCompanyDto } from '@modules/companies/dtos/login-company.dto';
+import { RegisterCompanyDto } from '@modules/companies/dtos/register-company.dto';
+import { Company } from '@modules/companies/entities/company.entity';
 import { CompaniesService } from '@modules/companies/services/companies.service';
+import { User } from '@modules/users/entities/user.entity';
 import { UsersService } from '@modules/users/services/users.service';
+import { ROLES } from '@shared/enums/roles';
 import { TokenPayload } from '../types/token-payload';
 
 @Injectable()

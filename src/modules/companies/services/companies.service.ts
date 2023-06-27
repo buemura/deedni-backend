@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 
-import { RegisterCompanyDto } from '@dtos/companies/register-company.dto';
-import { UpdateCompanyDto } from '@dtos/companies/update-company.dto';
-import { Company } from '@entities/company.entity';
-import { CompaniesRepository } from '@repositories/companies.repository';
+import { RegisterCompanyDto } from '@modules/companies/dtos/register-company.dto';
+import { UpdateCompanyDto } from '@modules/companies/dtos/update-company.dto';
+import { Company } from '@modules/companies/entities/company.entity';
+import { CompaniesRepository } from '@modules/companies/repositories/companies.repository';
 
 @Injectable()
 export class CompaniesService {

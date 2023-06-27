@@ -1,6 +1,6 @@
+import { UsersRepository } from '@modules/users/repositories/users.repository';
 import { ModuleMetadata } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
-import { UsersRepository } from '@repositories/users.repository';
 import { UsersService } from './users.service';
 
 const metadata: ModuleMetadata = {

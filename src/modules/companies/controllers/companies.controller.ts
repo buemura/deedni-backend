@@ -9,9 +9,9 @@ import {
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 
-import { CompanyResponseDto } from '@dtos/companies/company-response.dto';
-import { UpdateCompanyDto } from '@dtos/companies/update-company.dto';
-import { JwtAuthGuard } from '@guards/jwt-auth.guard';
+import { JwtAuthGuard } from '@modules/auth/guards/jwt-auth.guard';
+import { CompanyResponseDto } from '@modules/companies/dtos/company-response.dto';
+import { UpdateCompanyDto } from '@modules/companies/dtos/update-company.dto';
 import { CompaniesService } from '../services/companies.service';
 
 @ApiTags('companies')

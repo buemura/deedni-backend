@@ -1,6 +1,6 @@
+import { CompaniesRepository } from '@modules/companies/repositories/companies.repository';
 import { ModuleMetadata } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
-import { CompaniesRepository } from '@repositories/companies.repository';
 import { CompaniesService } from '../services/companies.service';
 import { CompaniesController } from './companies.controller';
 

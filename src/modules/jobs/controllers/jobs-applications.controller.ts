@@ -1,13 +1,13 @@
 import { Body, Controller, Get, Post, Query, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 
-import { Roles } from '@decorators/roles.decorator';
-import { CreateJobApplicationDto } from '@dtos/jobs/create-job-application.dto';
-import { JobsApplicationsQueryOptionsDto } from '@dtos/jobs/job-application-query-options.dto';
-import { JobApplicationResponseDto } from '@dtos/jobs/job-application-response.dto';
-import { ROLES } from '@enums/roles';
-import { RolesGuard } from '@guards/company-role.guard';
-import { JwtAuthGuard } from '@guards/jwt-auth.guard';
+import { RolesGuard } from '@modules/auth/guards/company-role.guard';
+import { JwtAuthGuard } from '@modules/auth/guards/jwt-auth.guard';
+import { CreateJobApplicationDto } from '@modules/jobs/dtos/create-job-application.dto';
+import { JobsApplicationsQueryOptionsDto } from '@modules/jobs/dtos/job-application-query-options.dto';
+import { JobApplicationResponseDto } from '@modules/jobs/dtos/job-application-response.dto';
+import { Roles } from '@shared/decorators/roles.decorator';
+import { ROLES } from '@shared/enums/roles';
 import { JobsApplicationsService } from '../services/jobs-applications.service';
 
 @ApiTags('jobs-applications')

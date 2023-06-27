@@ -1,6 +1,6 @@
+import { JobsRepository } from '@modules/jobs/repositories/jobs.repository';
 import { ModuleMetadata } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
-import { JobsRepository } from '@repositories/jobs.repository';
 import { JobsService } from './jobs.service';
 
 const metadata: ModuleMetadata = {

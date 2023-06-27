@@ -21,14 +21,16 @@
     "paths": {
       "@common/*": ["src/common/*"],
       "@database/*": ["src/database/*"],
-      "@decorators/*": ["src/decorators/*"],
+      "@decorators/*": ["src/shared/decorators/*"],
       "@dtos/*": ["src/dtos/*"],
       "@entities/*": ["src/entities/*"],
-      "@enums/*": ["src/enums/*"],
-      "@guards/*": ["src/guards/*"],
-      "@interceptors/*": ["src/interceptors/*"],
+      "@enums/*": ["src/shared/enums/*"],
+      "@guards/*": ["src/modules/auth/guards/*"],
+      "@infra/*": ["src/infra/*"],
+      "@interceptors/*": ["src/infra/interceptors/*"],
       "@repositories/*": ["src/repositories/*"],
-      "@modules/*": ["src/modules/*"]
+      "@modules/*": ["src/modules/*"],
+      "@shared/*": ["src/shared/*"]
     }
   },
   "include": ["src/**/*", "test/**/*", "**/*.config.js"],

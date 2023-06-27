@@ -10,11 +10,11 @@ import {
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 
-import { CurrentUser } from '@decorators/current-user.decorator';
-import { UpdateUserDto } from '@dtos/users/update-user.dto';
-import { UserResponseDto } from '@dtos/users/user-response.dto';
-import { User } from '@entities/user.entity';
-import { JwtAuthGuard } from '@guards/jwt-auth.guard';
+import { JwtAuthGuard } from '@modules/auth/guards/jwt-auth.guard';
+import { UpdateUserDto } from '@modules/users/dtos/update-user.dto';
+import { UserResponseDto } from '@modules/users/dtos/user-response.dto';
+import { User } from '@modules/users/entities/user.entity';
+import { CurrentUser } from '@shared/decorators/current-user.decorator';
 import { UsersService } from '../services/users.service';
 
 @ApiTags('users')

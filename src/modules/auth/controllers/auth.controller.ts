@@ -1,17 +1,17 @@
 import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
-import { CurrentUser } from '@decorators/current-user.decorator';
-import { LoginResponseDto } from '@dtos/auth/login-response.dto';
-import { LoginUserDto } from '@dtos/auth/login-user.dto';
-import { RegisterUserDto } from '@dtos/auth/register-user.dto';
-import { CompanyResponseDto } from '@dtos/companies/company-response.dto';
-import { LoginCompanyDto } from '@dtos/companies/login-company.dto';
-import { RegisterCompanyDto } from '@dtos/companies/register-company.dto';
-import { UserResponseDto } from '@dtos/users/user-response.dto';
-import { Company } from '@entities/company.entity';
-import { User } from '@entities/user.entity';
-import { JwtAuthGuard } from '@guards/jwt-auth.guard';
+import { LoginResponseDto } from '@modules/auth/dtos/login-response.dto';
+import { LoginUserDto } from '@modules/auth/dtos/login-user.dto';
+import { RegisterUserDto } from '@modules/auth/dtos/register-user.dto';
+import { JwtAuthGuard } from '@modules/auth/guards/jwt-auth.guard';
+import { CompanyResponseDto } from '@modules/companies/dtos/company-response.dto';
+import { LoginCompanyDto } from '@modules/companies/dtos/login-company.dto';
+import { RegisterCompanyDto } from '@modules/companies/dtos/register-company.dto';
+import { Company } from '@modules/companies/entities/company.entity';
+import { UserResponseDto } from '@modules/users/dtos/user-response.dto';
+import { User } from '@modules/users/entities/user.entity';
+import { CurrentUser } from '@shared/decorators/current-user.decorator';
 import { AuthService } from '../services/auth.service';
 
 @ApiTags('auth')

@@ -1,10 +1,10 @@
 import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 
-import { CreateJobApplicationDto } from '@dtos/jobs/create-job-application.dto';
-import { JobsApplicationsQueryOptionsDto } from '@dtos/jobs/job-application-query-options.dto';
-import { JobApplication } from '@entities/job-application.entity';
+import { CreateJobApplicationDto } from '@modules/jobs/dtos/create-job-application.dto';
+import { JobsApplicationsQueryOptionsDto } from '@modules/jobs/dtos/job-application-query-options.dto';
+import { JobApplication } from '@modules/jobs/entities/job-application.entity';
+import { JobsApplicationsRepository } from '@modules/jobs/repositories/jobs-applications.repository';
 import { UsersService } from '@modules/users/services/users.service';
-import { JobsApplicationsRepository } from '@repositories/jobs-applications.repository';
 import { JobsService } from './jobs.service';
 
 @Injectable()

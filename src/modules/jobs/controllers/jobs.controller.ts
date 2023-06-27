@@ -11,14 +11,14 @@ import {
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 
-import { Roles } from '@decorators/roles.decorator';
-import { CreateJobDto } from '@dtos/jobs/create-job.dto';
-import { JobsQueryOptionsDto } from '@dtos/jobs/job-query-options.dto';
-import { JobResponseDto } from '@dtos/jobs/job-response.dto';
-import { UpdateJobDto } from '@dtos/jobs/update-job.dto';
-import { ROLES } from '@enums/roles';
-import { RolesGuard } from '@guards/company-role.guard';
-import { JwtAuthGuard } from '@guards/jwt-auth.guard';
+import { RolesGuard } from '@modules/auth/guards/company-role.guard';
+import { JwtAuthGuard } from '@modules/auth/guards/jwt-auth.guard';
+import { CreateJobDto } from '@modules/jobs/dtos/create-job.dto';
+import { JobsQueryOptionsDto } from '@modules/jobs/dtos/job-query-options.dto';
+import { JobResponseDto } from '@modules/jobs/dtos/job-response.dto';
+import { UpdateJobDto } from '@modules/jobs/dtos/update-job.dto';
+import { Roles } from '@shared/decorators/roles.decorator';
+import { ROLES } from '@shared/enums/roles';
 import { JobsService } from '../services/jobs.service';
 
 @ApiTags('jobs')

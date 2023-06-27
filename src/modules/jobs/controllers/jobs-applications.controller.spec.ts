@@ -1,7 +1,7 @@
+import { JobsRepository } from '@modules/jobs/repositories/jobs.repository';
 import { ModuleMetadata } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { Test, TestingModule } from '@nestjs/testing';
-import { JobsRepository } from '@repositories/jobs.repository';
 import { JobsService } from '../services/jobs.service';
 import { JobsController } from './jobs.controller';
 
