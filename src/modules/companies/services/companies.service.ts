@@ -14,7 +14,12 @@ export class CompaniesService {
   }
 
   async findById(id: string): Promise<Company> {
-    return this.companiesRepository.findById(id);
+    const company = await this.companiesRepository.findById(id);
+    if (!company) {
+      return null;
+    }
+
+    return company;
   }
 
   async findByEmail(email: string): Promise<Company> {
@@ -25,11 +30,21 @@ export class CompaniesService {
     return this.companiesRepository.create(data);
   }
 
-  async update(id: string, data: UpdateCompanyDto) {
+  async update(id: string, data: UpdateCompanyDto): Promise<Company> {
+    const company = await this.findById(id);
+    if (!company) {
+      return null;
+    }
+
     return this.companiesRepository.update(id, data);
   }
 
-  async remove(id: string) {
+  async remove(id: string): Promise<Company> {
+    const company = await this.findById(id);
+    if (!company) {
+      return null;
+    }
+
     return this.companiesRepository.remove(id);
   }
 }

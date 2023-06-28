@@ -3,13 +3,20 @@ import {
   Controller,
   Delete,
   Get,
+  NotFoundException,
   Param,
   Patch,
   Post,
   Query,
   UseGuards,
 } from '@nestjs/common';
-import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiCreatedResponse,
+  ApiNotFoundResponse,
+  ApiOkResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 
 import { RolesGuard } from '@modules/auth/guards/company-role.guard';
 import { JwtAuthGuard } from '@modules/auth/guards/jwt-auth.guard';
@@ -18,7 +25,9 @@ import { JobsQueryOptionsDto } from '@modules/jobs/dtos/job-query-options.dto';
 import { JobResponseDto } from '@modules/jobs/dtos/job-response.dto';
 import { UpdateJobDto } from '@modules/jobs/dtos/update-job.dto';
 import { Roles } from '@shared/decorators/roles.decorator';
+import { NotFoundResponseDto } from '@shared/dtos/not-found-response.dto';
 import { ROLES } from '@shared/enums/roles';
+import { ERROR_MESSAGE } from '../errors/message';
 import { JobsService } from '../services/jobs.service';
 
 @ApiTags('jobs')
@@ -27,44 +36,62 @@ export class JobsController {
   constructor(private readonly jobsService: JobsService) {}
 
   @Get()
-  @ApiResponse({ type: [JobResponseDto] })
+  @ApiOkResponse({ type: [JobResponseDto] })
   async findMany(@Query() query: JobsQueryOptionsDto) {
     return this.jobsService.findMany(query);
   }
 
   @Get(':jobId')
-  @ApiResponse({ type: JobResponseDto })
+  @ApiOkResponse({ type: JobResponseDto })
+  @ApiNotFoundResponse({ type: NotFoundResponseDto })
   async findOne(@Param('jobId') jobId: string) {
-    return this.jobsService.findById(+jobId);
+    const job = await this.jobsService.findById(+jobId);
+    if (!job) {
+      throw new NotFoundException(ERROR_MESSAGE.JOB_NOT_FOUND);
+    }
+
+    return job;
   }
 
   @Post()
-  @ApiBearerAuth()
-  @ApiResponse({ type: JobResponseDto })
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(ROLES.COMPANY)
+  @ApiBearerAuth()
+  @ApiCreatedResponse({ type: JobResponseDto })
   async create(@Body() data: CreateJobDto) {
     return this.jobsService.create(data);
   }
 
   @Patch(':jobId')
-  @ApiBearerAuth()
-  @ApiResponse({ type: JobResponseDto })
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(ROLES.COMPANY)
+  @ApiBearerAuth()
+  @ApiOkResponse({ type: JobResponseDto })
+  @ApiNotFoundResponse({ type: NotFoundResponseDto })
   async update(
     @Param('jobId') jobId: string,
     @Body() updateJobDto: UpdateJobDto,
   ) {
-    return this.jobsService.update(+jobId, updateJobDto);
+    const job = await this.jobsService.update(+jobId, updateJobDto);
+    if (!job) {
+      throw new NotFoundException(ERROR_MESSAGE.JOB_NOT_FOUND);
+    }
+
+    return job;
   }
 
   @Delete(':jobId')
-  @ApiBearerAuth()
-  @ApiResponse({ type: JobResponseDto })
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(ROLES.COMPANY)
+  @ApiBearerAuth()
+  @ApiOkResponse({ type: JobResponseDto })
+  @ApiNotFoundResponse({ type: NotFoundResponseDto })
   async remove(@Param('jobId') jobId: string) {
-    return this.jobsService.remove(+jobId);
+    const job = await this.jobsService.remove(+jobId);
+    if (!job) {
+      throw new NotFoundException(ERROR_MESSAGE.JOB_NOT_FOUND);
+    }
+
+    return job;
   }
 }
